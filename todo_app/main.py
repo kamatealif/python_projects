@@ -149,5 +149,6 @@ def main(file_name):
                 print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
+    # the file where you want to store your data
     file_name = "tasks.csv"
     main(file_name)
