@@ -67,88 +67,101 @@ def count_contacts():
     cur.execute('SELECT COUNT(*) FROM phonebook')
     return cur.fetchone()[0]
 
-# Example usage
-add_contact('Alice', '123-456-7890')
-add_contact('Bob', '987-654-3210')
 
-print(get_contacts())
-print(find_contact('Alice'))
+def handle_add_contact():
+    name = input("Enter name: ")
+    phone = input("Enter phone number: ")
+    add_contact(name, phone)
+    print("Contact added successfully.")
 
-delete_contact('Alice')
-print(get_contacts())
+def handle_find_contact():
+    name = input("Enter name to find: ")
+    contact = find_contact(name)
+    if (contact):
+        print(f"Found contact: {contact}")
+    else:
+        print("Contact not found.")
 
-update_contact('Bob', '111-222-3333')
-print(find_contact('Bob'))
+def handle_view_all_contacts():
+    contacts = get_contacts()
+    print("All contacts:")
+    for contact in contacts:
+        print(contact)
 
-print(get_recent_contacts())
+def handle_update_contact_phone():
+    name = input("Enter name to update: ")
+    new_phone = input("Enter new phone number: ")
+    update_contact(name, new_phone)
+    print("Contact updated successfully.")
 
-update_contact_name('Bob', 'Robert')
-print(find_contact_by_phone('111-222-3333'))
-print(f"Total contacts: {count_contacts()}")
+def handle_delete_contact():
+    name = input("Enter name to delete: ")
+    delete_contact(name)
+    print("Contact deleted successfully.")
+
+def handle_view_recent_contacts():
+    limit = int(input("Enter number of recent contacts to view: "))
+    contacts = get_recent_contacts(limit)
+    print("Recent contacts:")
+    for contact in contacts:
+        print(contact)
+
+def handle_update_contact_name():
+    old_name = input("Enter current name: ")
+    new_name = input("Enter new name: ")
+    update_contact_name(old_name, new_name)
+    print("Contact name updated successfully.")
+
+def handle_find_contact_by_phone():
+    phone = input("Enter phone number to find: ")
+    contact = find_contact_by_phone(phone)
+    if (contact):
+        print(f"Found contact: {contact}")
+    else:
+        print("Contact not found.")
+
+def handle_count_contacts():
+    total_contacts = count_contacts()
+    print(f"Total contacts: {total_contacts}")
+
+def menu():
+    print("1. Add Contact")
+    print("2. Find Contact by Name")
+    print("3. View All Contacts")
+    print("4. Update Contact Phone")
+    print("5. Delete Contact")
+    print("6. View Recent Contacts")
+    print("7. Update Contact Name")
+    print("8. Find Contact by Phone")
+    print("9. Count Contacts")
+    print("10. Exit")
 
 def menu():
     while True:
         print("\nPhonebook Menu:")
-        print("1. Add Contact")
-        print("2. Find Contact by Name")
-        print("3. View All Contacts")
-        print("4. Update Contact Phone")
-        print("5. Delete Contact")
-        print("6. View Recent Contacts")
-        print("7. Update Contact Name")
-        print("8. Find Contact by Phone")
-        print("9. Count Contacts")
-        print("10. Exit")
+        menu();
+       
         
         choice = input("Enter your choice: ")
         
         if choice == '1':
-            name = input("Enter name: ")
-            phone = input("Enter phone number: ")
-            add_contact(name, phone)
-            print("Contact added successfully.")
+            handle_add_contact()
         elif choice == '2':
-            name = input("Enter name to find: ")
-            contact = find_contact(name)
-            if contact:
-                print(f"Found contact: {contact}")
-            else:
-                print("Contact not found.")
+            handle_find_contact()
         elif choice == '3':
-            contacts = get_contacts()
-            print("All contacts:")
-            for contact in contacts:
-                print(contact)
+            handle_view_all_contacts()
         elif choice == '4':
-            name = input("Enter name to update: ")
-            new_phone = input("Enter new phone number: ")
-            update_contact(name, new_phone)
-            print("Contact updated successfully.")
+            handle_update_contact_phone()
         elif choice == '5':
-            name = input("Enter name to delete: ")
-            delete_contact(name)
-            print("Contact deleted successfully.")
+            handle_delete_contact()
         elif choice == '6':
-            limit = int(input("Enter number of recent contacts to view: "))
-            contacts = get_recent_contacts(limit)
-            print("Recent contacts:")
-            for contact in contacts:
-                print(contact)
+            handle_view_recent_contacts()
         elif choice == '7':
-            old_name = input("Enter current name: ")
-            new_name = input("Enter new name: ")
-            update_contact_name(old_name, new_name)
-            print("Contact name updated successfully.")
+            handle_update_contact_name()
         elif choice == '8':
-            phone = input("Enter phone number to find: ")
-            contact = find_contact_by_phone(phone)
-            if contact:
-                print(f"Found contact: {contact}")
-            else:
-                print("Contact not found.")
+            handle_find_contact_by_phone()
         elif choice == '9':
-            total_contacts = count_contacts()
-            print(f"Total contacts: {total_contacts}")
+            handle_count_contacts()
         elif choice == '10':
             print("Exiting...")
             break
