@@ -39,19 +39,6 @@ def delete_contact(name):
     cur.execute('DELETE FROM phonebook WHERE name = %s', (name,))
     conn.commit()
 
-# Example usage
-add_contact('Alice', '123-456-7890')
-add_contact('Bob', '987-654-3210')
-
-print(get_contacts())
-print(find_contact('Alice'))
-
-delete_contact('Alice')
-print(get_contacts())
-
-# Close the connection
-cur.close()
-conn.close()
 def update_contact(name, new_phone):
     cur.execute('''
         UPDATE phonebook
@@ -64,21 +51,54 @@ def get_recent_contacts(limit=5):
     cur.execute('SELECT * FROM phonebook ORDER BY id DESC LIMIT %s', (limit,))
     return cur.fetchall()
 
+def update_contact_name(old_name, new_name):
+    cur.execute('''
+        UPDATE phonebook
+        SET name = %s
+        WHERE name = %s
+    ''', (new_name, old_name))
+    conn.commit()
+
+def find_contact_by_phone(phone):
+    cur.execute('SELECT * FROM phonebook WHERE phone = %s', (phone,))
+    return cur.fetchone()
+
+def count_contacts():
+    cur.execute('SELECT COUNT(*) FROM phonebook')
+    return cur.fetchone()[0]
+
 # Example usage
+add_contact('Alice', '123-456-7890')
+add_contact('Bob', '987-654-3210')
+
+print(get_contacts())
+print(find_contact('Alice'))
+
+delete_contact('Alice')
+print(get_contacts())
+
 update_contact('Bob', '111-222-3333')
 print(find_contact('Bob'))
 
 print(get_recent_contacts())
+
+update_contact_name('Bob', 'Robert')
+print(find_contact_by_phone('111-222-3333'))
+print(f"Total contacts: {count_contacts()}")
+
 def menu():
     while True:
         print("\nPhonebook Menu:")
         print("1. Add Contact")
         print("2. Find Contact by Name")
         print("3. View All Contacts")
-        print("4. Update Contact")
+        print("4. Update Contact Phone")
         print("5. Delete Contact")
         print("6. View Recent Contacts")
-        print("7. Exit")
+        print("7. Update Contact Name")
+        print("8. Find Contact by Phone")
+        print("9. Count Contacts")
+        print("10. Exit")
         
         choice = input("Enter your choice: ")
         
@@ -115,6 +135,21 @@ def menu():
             for contact in contacts:
                 print(contact)
         elif choice == '7':
+            old_name = input("Enter current name: ")
+            new_name = input("Enter new name: ")
+            update_contact_name(old_name, new_name)
+            print("Contact name updated successfully.")
+        elif choice == '8':
+            phone = input("Enter phone number to find: ")
+            contact = find_contact_by_phone(phone)
+            if contact:
+                print(f"Found contact: {contact}")
+            else:
+                print("Contact not found.")
+        elif choice == '9':
+            total_contacts = count_contacts()
+            print(f"Total contacts: {total_contacts}")
+        elif choice == '10':
             print("Exiting...")
             break
         else:
