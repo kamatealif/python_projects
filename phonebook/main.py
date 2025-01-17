@@ -1,4 +1,5 @@
 import psycopg2
+import csv
 
 # Connect to PostgreSQL database
 conn = psycopg2.connect(
@@ -67,6 +68,23 @@ def count_contacts():
     cur.execute('SELECT COUNT(*) FROM phonebook')
     return cur.fetchone()[0]
 
+def export_contacts_to_csv(filename):
+    contacts = get_contacts()
+    with open(filename, 'w', newline='') as csvfile:
+        fieldnames = ['id', 'name', 'phone']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        writer.writeheader()
+        for contact in contacts:
+            writer.writerow({'id': contact[0], 'name': contact[1], 'phone': contact[2]})
+    print(f"Contacts exported to {filename} successfully.")
+
+def import_contacts_from_csv(filename):
+    with open(filename, 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            add_contact(row['name'], row['phone'])
+    print(f"Contacts imported from {filename} successfully.")
 
 def handle_add_contact():
     name = input("Enter name: ")
@@ -124,23 +142,29 @@ def handle_count_contacts():
     total_contacts = count_contacts()
     print(f"Total contacts: {total_contacts}")
 
-def menu():
-    print("1. Add Contact")
-    print("2. Find Contact by Name")
-    print("3. View All Contacts")
-    print("4. Update Contact Phone")
-    print("5. Delete Contact")
-    print("6. View Recent Contacts")
-    print("7. Update Contact Name")
-    print("8. Find Contact by Phone")
-    print("9. Count Contacts")
-    print("10. Exit")
+def handle_export_contacts_to_csv():
+    filename = input("Enter filename to export contacts (e.g., contacts.csv): ")
+    export_contacts_to_csv(filename)
+
+def handle_import_contacts_from_csv():
+    filename = input("Enter filename to import contacts (e.g., contacts.csv): ")
+    import_contacts_from_csv(filename)
 
 def menu():
     while True:
         print("\nPhonebook Menu:")
-        menu();
-       
+        print("1. Add Contact")
+        print("2. Find Contact by Name")
+        print("3. View All Contacts")
+        print("4. Update Contact Phone")
+        print("5. Delete Contact")
+        print("6. View Recent Contacts")
+        print("7. Update Contact Name")
+        print("8. Find Contact by Phone")
+        print("9. Count Contacts")
+        print("10. Export Contacts to CSV")
+        print("11. Import Contacts from CSV")
+        print("12. Exit")
         
         choice = input("Enter your choice: ")
         
@@ -163,6 +187,10 @@ def menu():
         elif choice == '9':
             handle_count_contacts()
         elif choice == '10':
+            handle_export_contacts_to_csv()
+        elif choice == '11':
+            handle_import_contacts_from_csv()
+        elif choice == '12':
             print("Exiting...")
             break
         else:
