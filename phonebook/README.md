@@ -1,6 +1,6 @@
 # Phonebook Application
 
-This is a simple phonebook application implemented in Python using PostgreSQL as the database. It allows you to add, view, update, delete, and search for contacts in the phonebook.
+This is a simple phonebook application implemented in Python using PostgreSQL as the database. It allows you to add, view, update, delete, and search for contacts in the phonebook. Additionally, you can export and import contacts to/from a CSV file.
 
 ## Features
 
@@ -10,6 +10,11 @@ This is a simple phonebook application implemented in Python using PostgreSQL as
 - Update a contact's phone number
 - Delete a contact from the phonebook
 - View recent contacts
+- Update a contact's name
+- Find a contact by phone number
+- Count the total number of contacts
+- Export contacts to a CSV file
+- Import contacts from a CSV file
 
 ## Requirements
 
@@ -56,10 +61,15 @@ Phonebook Menu:
 1. Add Contact
 2. Find Contact by Name
 3. View All Contacts
-4. Update Contact
+4. Update Contact Phone
 5. Delete Contact
 6. View Recent Contacts
-7. Exit
+7. Update Contact Name
+8. Find Contact by Phone
+9. Count Contacts
+10. Export Contacts to CSV
+11. Import Contacts from CSV
+12. Exit
 Enter your choice: 1
 Enter name: Alice
 Enter phone number: 123-456-7890
@@ -69,10 +79,15 @@ Phonebook Menu:
 1. Add Contact
 2. Find Contact by Name
 3. View All Contacts
-4. Update Contact
+4. Update Contact Phone
 5. Delete Contact
 6. View Recent Contacts
-7. Exit
+7. Update Contact Name
+8. Find Contact by Phone
+9. Count Contacts
+10. Export Contacts to CSV
+11. Import Contacts from CSV
+12. Exit
 Enter your choice: 3
 All contacts:
 (1, 'Alice', '123-456-7890')
