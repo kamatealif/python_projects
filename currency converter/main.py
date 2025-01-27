@@ -115,7 +115,6 @@ def main():
                     with open("exchange_rates.json", "w") as f:
                         json.dump(data, f)
                     print("Exchange rates saved successfully!")
-                    exchange_rates = data
                 else:
                     print("Failed to fetch exchange rates. Please try again.")
             case "5":
