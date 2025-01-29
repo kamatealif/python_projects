@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+</head>
+<body>
+    <h1>Phone Book</h1>
+    <h1>Welcome to the Flask Phonebook 📞</h1>
+    <a href="/add"> Add New Contact</a>
+    <hr>
+    <h2>Contacts</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th> 
+            <th>Address</th>
+        </tr>
+
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.phone }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.address }}</td>
+                <td>
+                    <a href="/edit/{{contact.id}}">edit</a>
+                    <a href="/delete/{{contact.id}}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
