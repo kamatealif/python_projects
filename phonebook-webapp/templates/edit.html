@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Edit Contact</title>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block content %}
     <h1>Edit Contact 📞</h1>
     <form action="/edit/{{ contact.id }}" method="POST">
         <label for="name">Name:</label>
@@ -27,5 +23,4 @@
 
     <br>
     <a href="/">Back to Home</a>
-</body>
-</html>
+{% endblock%}

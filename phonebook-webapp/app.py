@@ -24,7 +24,7 @@ with app.app_context():
 @app.route('/home')
 def home():
     contacts = Contact.query.all()
-    return render_template('home.html', contacts=contacts)
+    return render_template('home.html', contacts=contacts, title='Home')
 
 @app.route('/add', methods=['GET','POST'])
 def add_contact():
@@ -42,7 +42,7 @@ def add_contact():
 
     return render_template('add.html')  
 
-@app.route('/edit/<int:id>', methods=['GET','POST'])
+@app.route('/edit/<int:id>', methods=['GET','POST'] )
 def edit_contact(id):
     contact = Contact.query.get_or_404(id)
 
