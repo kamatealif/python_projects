@@ -1,78 +1,103 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-}
-
-h1 {
+  font-family: 'Arial', sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
   text-align: center;
-  color: #00698f;
-  margin-bottom: 20px;
 }
 
-h1:first-child {
-  font-size: 36px;
-  margin-top: 40px;
+.title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-h1:last-child {
+.sub-title {
   font-size: 24px;
-  margin-bottom: 40px;
+  color: #555;
+  margin-top: 20px;
 }
 
-a {
+.btn {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 5px;
   text-decoration: none;
-  color: #00698f;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-a:hover {
-  color: #004c6f;
+.btn:hover {
+  opacity: 0.8;
 }
 
-hr {
-  margin: 20px 0;
-  border: none;
-  border-top: 1px solid #ccc;
+.edit { background: #4CAF50; color: white; }
+.delete { background: #E74C3C; color: white; }
+.view { background: #3498DB; color: white; }
+.btn.add { background: #2ECC71; color: white; }
+
+.search-container {
+  position: relative;
+  width: 50%;
+  margin: 20px auto;
 }
 
-h2 {
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
-table {
-  border-collapse: collapse;
+#searchInput {
   width: 100%;
-}
-
-th, td {
-  border: 1px solid #ddd;
   padding: 10px;
-  text-align: left;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
 }
 
-th {
-  background-color: #f0f0f0;
+#searchResults {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-td:last-child {
+.search-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.search-item:hover {
+  background: #f0f0f0;
+}
+
+.no-result {
+  color: #999;
   text-align: center;
 }
 
-td a {
-  margin: 0 10px;
+.contact-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-td a:hover {
-  text-decoration: underline;
+.contact-table th, .contact-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
 }
 
-tr:hover {
-  background-color: #00698f;
+.contact-table th {
+  background: #2C3E50;
+  color: white;
 }
 
-tr:hover a{
-  color: #fff;
+.contact-table tr:nth-child(even) {
+  background: #f9f9f9;
 }
+
 /* css for the add.html */
 
 
@@ -84,6 +109,7 @@ form {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: start;
 }
 
 label {

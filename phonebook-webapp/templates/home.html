@@ -1,14 +1,15 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h1>Phone Book 📞</h1>
-    <a href="/add">Add New Contact</a>
-    <hr>
+    <h1 class="title">📞 Phone Book</h1>
+    <a href="/add" class="btn">➕ Add New Contact</a>
 
-    <input type="text" id="searchInput" placeholder="Search by name or phone..." autocomplete="off">
-    <div id="searchResults"></div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍 Search by name or phone..." autocomplete="off">
+        <div id="searchResults"></div>
+    </div>
 
-    <h2>Contacts</h2>
-    <table border="1">
+    <h2 class="sub-title">Contacts</h2>
+    <table class="contact-table">
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -26,9 +27,9 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.address }}</td>
                 <td>
-                    <a href="/edit/{{contact.id}}">Edit</a>
-                    <a href="/delete/{{contact.id}}">Delete</a>
-                    <a href="/view/{{contact.id}}">View</a>
+                    <a href="/edit/{{contact.id}}" class="btn edit">✏️ Edit</a>
+                    <a href="/delete/{{contact.id}}" class="btn delete">🗑️ Delete</a>
+                    <a href="/view/{{contact.id}}" class="btn view">👁️ View</a>
                 </td>
             </tr>
         {% endfor %}
@@ -51,30 +52,16 @@
             })
             .then(response => response.json())
             .then(data => {
-                searchResults.innerHTML = data.map(contact => 
-                    `<div class="search-item">
-                        <a href="/view/${contact.id}">${contact.name} - ${contact.phone}</a>
-                    </div>`
-                ).join("");
+                if (data.length === 0) {
+                    searchResults.innerHTML = "<div class='search-item no-result'>No results found</div>";
+                } else {
+                    searchResults.innerHTML = data.map(contact => 
+                        `<div class="search-item">
+                            <a href="/view/${contact.id}">${contact.name} - ${contact.phone}</a>
+                        </div>`
+                    ).join("");
+                }
             });
         });
     </script>
-
-    <style>
-        #searchResults {
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            width: 250px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        .search-item {
-            padding: 5px;
-            cursor: pointer;
-        }
-        .search-item:hover {
-            background: #f0f0f0;
-        }
-    </style>
 {% endblock %}
