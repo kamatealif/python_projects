@@ -136,3 +136,9 @@ a {
 a:hover {
   color: #004c6f;
 }
+
+/* /* css for search  */
+
+#searchInput{
+ width: 50%;
+}

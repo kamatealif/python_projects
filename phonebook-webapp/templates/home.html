@@ -1,17 +1,21 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <h1>Phone Book</h1>
-    <h1>Welcome to the Flask Phonebook 📞</h1>
-    <a href="/add"> Add New Contact</a>
+    <h1>Phone Book 📞</h1>
+    <a href="/add">Add New Contact</a>
     <hr>
+
+    <input type="text" id="searchInput" placeholder="Search by name or phone..." autocomplete="off">
+    <div id="searchResults"></div>
+
     <h2>Contacts</h2>
     <table border="1">
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Phone</th>
-            <th>Email</th> 
+            <th>Email</th>
             <th>Address</th>
+            <th>Actions</th>
         </tr>
 
         {% for contact in contacts %}
@@ -22,11 +26,55 @@
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.address }}</td>
                 <td>
-                    <a href="/edit/{{contact.id}}">edit</a>
-                    <a href="/delete/{{contact.id}}">delete</a>
+                    <a href="/edit/{{contact.id}}">Edit</a>
+                    <a href="/delete/{{contact.id}}">Delete</a>
+                    <a href="/view/{{contact.id}}">View</a>
                 </td>
             </tr>
         {% endfor %}
     </table>
-    
-   {% endblock %}
+
+    <script>
+        document.getElementById("searchInput").addEventListener("keyup", function() {
+            let query = this.value.trim();
+            let searchResults = document.getElementById("searchResults");
+
+            if (query.length < 1) {
+                searchResults.innerHTML = "";
+                return;
+            }
+
+            fetch("/search", {
+                method: "POST",
+                body: new URLSearchParams({ query: query }),
+                headers: { "Content-Type": "application/x-www-form-urlencoded" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                searchResults.innerHTML = data.map(contact => 
+                    `<div class="search-item">
+                        <a href="/view/${contact.id}">${contact.name} - ${contact.phone}</a>
+                    </div>`
+                ).join("");
+            });
+        });
+    </script>
+
+    <style>
+        #searchResults {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            width: 250px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .search-item {
+            padding: 5px;
+            cursor: pointer;
+        }
+        .search-item:hover {
+            background: #f0f0f0;
+        }
+    </style>
+{% endblock %}

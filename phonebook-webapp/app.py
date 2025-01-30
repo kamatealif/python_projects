@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request, redirect, url_for
+from flask import Flask,render_template,request, redirect, url_for, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -65,6 +65,23 @@ def delete_contact(id):
     db.session.commit()
     
     return redirect(url_for('home'))
+
+@app.route('/search', methods=['POST'])
+def search_contact():
+    query = request.form['query']
+    results = Contact.query.filter(
+        (Contact.name.ilike(f"%{query}%")) | 
+        (Contact.phone.ilike(f"%{query}%")) |
+        (Contact.email.ilike(f"%{query}%"))
+    ).all()
+
+    # Return results as JSON for AJAX
+    return jsonify([{'id': c.id, 'name': c.name, 'phone': c.phone} for c in results])
+
+@app.route('/view/<int:id>')
+def view_contact(id):
+    contact = Contact.query.get_or_404(id)
+    return render_template('view.html', contact=contact)
 
 
 if __name__ == "__main__":
