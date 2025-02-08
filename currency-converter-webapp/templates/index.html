@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>💱 Currency Converter</h1>
+        <form method="POST">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required step="0.01">
+
+            <label for="from_currency">From:</label>
+            <select id="from_currency" name="from_currency" required>
+                {% for currency in rates.keys() %}
+                    <option value="{{ currency }}">{{ currency }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="to_currency">To:</label>
+            <select id="to_currency" name="to_currency" required>
+                {% for currency in rates.keys() %}
+                    <option value="{{ currency }}">{{ currency }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if converted_amount is not none %}
+            <div class="result">
+                <h2>Converted Amount: {{ "%.2f"|format(converted_amount) }}</h2>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>
