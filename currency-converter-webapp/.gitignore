@@ -1,2 +1,5 @@
 .venv
 /.venv/*
+
+#  ignore the  environment variables
+.env

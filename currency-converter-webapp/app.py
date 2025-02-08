@@ -1,9 +1,12 @@
+import os
 from flask import Flask, render_template, request
 import requests
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 
-API_URL = "https://api.exchangerate-api.com/v4/latest/USD"  # Free exchange rate API
+API_URL = os.getenv("API_KEY")  # Free exchange rate API
 
 @app.route("/", methods=["GET", "POST"])
 def home():
