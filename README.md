@@ -33,7 +33,7 @@ git clone https://github.com/kamatealif/python_projects.git
 cd python_projects
 ```
 
-3. Install required dependencies for specific projects (if needed):
+3. Install required dependencies for specific projects (if needed): no need to do because it uses default package for most of the programs
 ```bash
 pip install -r requirements.txt
 ```
