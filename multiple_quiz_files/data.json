@@ -1,0 +1,304 @@
+{
+  "python_quiz": [
+    {
+      "id": 1,
+      "question": "Who developed the Python programming language?",
+      "options": "Dennis Ritchie, Guido van Rossum, James Gosling, Bjarne Stroustrup",
+      "answer": "Guido van Rossum"
+    },
+    {
+      "id": 2,
+      "question": "Which type of Programming does Python support?",
+      "options": "Object-oriented programming, Structured programming, Functional programming, All of the above",
+      "answer": "All of the above"
+    },
+    {
+      "id": 3,
+      "question": "Is Python case sensitive when dealing with identifiers?",
+      "options": "No, Yes, Machine dependent, None of the above",
+      "answer": "Yes"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is the correct extension of the Python file?",
+      "options": ".python, .pl, .py, .p",
+      "answer": ".py"
+    },
+    {
+      "id": 5,
+      "question": "Is Python code compiled or interpreted?",
+      "options": "Python code is both compiled and interpreted, Python code is neither compiled nor interpreted, Python code is only compiled, Python code is only interpreted",
+      "answer": "Python code is both compiled and interpreted"
+    },
+    {
+      "id": 6,
+      "question": "All keywords in Python are in _________",
+      "options": "Lowercase, Uppercase, Capitalized, None of the above",
+      "answer": "None of the above"
+    },
+    {
+      "id": 7,
+      "question": "What will be the value of the following Python expression? 4 + 3 % 5",
+      "options": "7, 2, 4, 1",
+      "answer": "7"
+    },
+    {
+      "id": 8,
+      "question": "Which of the following is used to define a block of code in Python language?",
+      "options": "Indentation, Key, Brackets, All of the above",
+      "answer": "Indentation"
+    },
+    {
+      "id": 9,
+      "question": "Which keyword is used for function in Python language?",
+      "options": "Function, def, Fun, Define",
+      "answer": "def"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following character is used to give single-line comments in Python?",
+      "options": "//, #, !, /*",
+      "answer": "#"
+    },
+    {
+      "id": 11,
+      "question": "What is the order of precedence in python?",
+      "options": "Exponential Parentheses Multiplication Division Addition Subtraction, Exponential Parentheses Division Multiplication Addition Subtraction, Parentheses Exponential Multiplication Division Addition Subtraction, Parentheses Exponential Addition Subtraction Multiplication Division",
+      "answer": "Parentheses Exponential Multiplication Division Addition Subtraction"
+    },
+    {
+      "id": 12,
+      "question": "What is the maximum possible length of an identifier in Python?",
+      "options": "31 characters, 63 characters, 79 characters, None of the above",
+      "answer": "None of the above"
+    },
+    {
+      "id": 13,
+      "question": "Which of the following is a Python tuple?",
+      "options": "{1, 2, 3}, [1, 2, 3], (1, 2, 3), {}",
+      "answer": "(1, 2, 3)"
+    },
+    {
+      "id": 14,
+      "question": "What will be the output of print(type(1/2))?",
+      "options": "<class 'int'>, <class 'float'>, <class 'double'>, NameError",
+      "answer": "<class 'float'>"
+    },
+    {
+      "id": 15,
+      "question": "Which of the following functions is a built-in function in python?",
+      "options": "factorial(), print(), seed(), sqrt()",
+      "answer": "print()"
+    },
+    {
+      "id": 16,
+      "question": "What is the result of 2**3?",
+      "options": "6, 8, 9, 5",
+      "answer": "8"
+    },
+    {
+      "id": 17,
+      "question": "Which of these is not a core data type?",
+      "options": "Lists, Dictionary, Tuples, Class",
+      "answer": "Class"
+    },
+    {
+      "id": 18,
+      "question": "What is the output of len([1, 2, 3])?",
+      "options": "1, 2, 3, 0",
+      "answer": "3"
+    },
+    {
+      "id": 19,
+      "question": "Which of the following is a mutable data type?",
+      "options": "List, String, Tuple, Int",
+      "answer": "List"
+    },
+    {
+      "id": 20,
+      "question": "How do you start a while loop in Python?",
+      "options": "while x > y:, while (x > y), while x > y {, if x > y then:",
+      "answer": "while x > y:"
+    },
+    {
+      "id": 21,
+      "question": "Which operator is used for floor division?",
+      "options": "/, //, %, \\",
+      "answer": "//"
+    },
+    {
+      "id": 22,
+      "question": "What does range(5) generate?",
+      "options": "[0, 1, 2, 3, 4, 5], [1, 2, 3, 4, 5], [0, 1, 2, 3, 4], [1, 2, 3, 4]",
+      "answer": "[0, 1, 2, 3, 4]"
+    },
+    {
+      "id": 23,
+      "question": "Which keyword is used to handle exceptions?",
+      "options": "catch, except, try, throw",
+      "answer": "except"
+    },
+    {
+      "id": 24,
+      "question": "What is the output of 'abc'.upper()?",
+      "options": "ABC, abc, Abc, Error",
+      "answer": "ABC"
+    },
+    {
+      "id": 25,
+      "question": "How do you create a dictionary in Python?",
+      "options": "[], (), {}, <>",
+      "answer": "{}"
+    },
+    {
+      "id": 26,
+      "question": "What is the result of 10 // 3?",
+      "options": "3.33, 3, 1, 0",
+      "answer": "3"
+    },
+    {
+      "id": 27,
+      "question": "Which method adds an element to the end of a list?",
+      "options": "add(), insert(), append(), extend()",
+      "answer": "append()"
+    },
+    {
+      "id": 28,
+      "question": "How do you define a class in Python?",
+      "options": "class MyClass:, MyClass class:, define class MyClass:, class = MyClass",
+      "answer": "class MyClass:"
+    },
+    {
+      "id": 29,
+      "question": "What is the output of bool(0)?",
+      "options": "True, False, None, Error",
+      "answer": "False"
+    },
+    {
+      "id": 30,
+      "question": "What is the correct way to import a module 'math'?",
+      "options": "include math, import math, #include <math.h>, using math",
+      "answer": "import math"
+    },
+    {
+      "id": 31,
+      "question": "Which of the following is a sequence data type?",
+      "options": "Int, List, Dictionary, Set",
+      "answer": "List"
+    },
+    {
+      "id": 32,
+      "question": "What does the 'pass' statement do?",
+      "options": "Breaks the loop, Skips the current iteration, Does nothing, Exits the program",
+      "answer": "Does nothing"
+    },
+    {
+      "id": 33,
+      "question": "How do you access the last element of a list 'my_list'?",
+      "options": "my_list[0], my_list[-1], my_list[last], my_list.last()",
+      "answer": "my_list[-1]"
+    },
+    {
+      "id": 34,
+      "question": "What is the output of print('Python'[1])?",
+      "options": "P, y, t, h",
+      "answer": "y"
+    },
+    {
+      "id": 35,
+      "question": "Which collection is ordered, changeable, and allows duplicate members?",
+      "options": "List, Tuple, Set, Dictionary",
+      "answer": "List"
+    },
+    {
+      "id": 36,
+      "question": "Which collection does not allow duplicate members?",
+      "options": "List, Tuple, Set, Dictionary (keys)",
+      "answer": "Set"
+    },
+    {
+      "id": 37,
+      "question": "How do you get the data type of a variable 'x'?",
+      "options": "getType(x), type(x), x.type(), class(x)",
+      "answer": "type(x)"
+    },
+    {
+      "id": 38,
+      "question": "What is the keyword for 'else if' in Python?",
+      "options": "elseif, else if, elif, if else",
+      "answer": "elif"
+    },
+    {
+      "id": 39,
+      "question": "Which function converts a string to an integer?",
+      "options": "int(), str(), float(), parse()",
+      "answer": "int()"
+    },
+    {
+      "id": 40,
+      "question": "What is the output of 2 + 2 * 2?",
+      "options": "8, 6, 4, 0",
+      "answer": "6"
+    },
+    {
+      "id": 41,
+      "question": "How do you open a file for reading in Python?",
+      "options": "open('file.txt' 'w'), open('file.txt' 'r'), open('file.txt' 'a'), open('file.txt' 'x')",
+      "answer": "open('file.txt' 'r')"
+    },
+    {
+      "id": 42,
+      "question": "Which of the following is used to remove leading and trailing whitespaces?",
+      "options": "strip(), trim(), remove(), clear()",
+      "answer": "strip()"
+    },
+    {
+      "id": 43,
+      "question": "What is the result of '10' + '20'?",
+      "options": "30, 1020, Error, 200",
+      "answer": "1020"
+    },
+    {
+      "id": 44,
+      "question": "What is the correct syntax for a lambda function?",
+      "options": "lambda x: x * x, lambda(x) {x * x}, def lambda(x): x * x, lambda: x * x",
+      "answer": "lambda x: x * x"
+    },
+    {
+      "id": 45,
+      "question": "How can you check if 'apple' is in a list 'fruits'?",
+      "options": "fruits.contains('apple'), 'apple' in fruits, 'apple' exists fruits, fruits.has('apple')",
+      "answer": "'apple' in fruits"
+    },
+    {
+      "id": 46,
+      "question": "Which module in Python is used for regular expressions?",
+      "options": "regex, re, sre, regexp",
+      "answer": "re"
+    },
+    {
+      "id": 47,
+      "question": "What is the output of print(abs(-5))?",
+      "options": "-5, 5, 0, Error",
+      "answer": "5"
+    },
+    {
+      "id": 48,
+      "question": "What is the default return value of a function that doesn't return anything?",
+      "options": "0, False, None, Empty String",
+      "answer": "None"
+    },
+    {
+      "id": 49,
+      "question": "Which method is used to sort a list?",
+      "options": "sort(), order(), arrange(), sorted()",
+      "answer": "sort()"
+    },
+    {
+      "id": 50,
+      "question": "What is the result of bool([])?",
+      "options": "True, False, None, Error",
+      "answer": "False"
+    }
+  ]
+}
