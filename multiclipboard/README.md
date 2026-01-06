@@ -32,7 +32,7 @@ Save the following code as `mcb.pyw`. The `.pyw` extension ensures that no termi
 | Delete | `py mcb.pyw delete <key>` | Removes the specific <key> from storage. |
 | Clear | `py mcb.pyw delete_all` | Wipes the entire database clean. |
 
-## 🛠 Setup Guid 
+## 🛠 Setup Guide
 
 1. Install Dependencies
 You'll need the pyperclip module, as it is not part of the Python Standard Library:
@@ -47,3 +47,13 @@ To run the tool by simply typing mcb instead of py mcb.pyw, create a file named 
     ```bash 
     @py.exe C:\Users\YourName\Documents\mcb.pyw %*
     ```
+    <Callout type="info"> Ensure the folder containing your .bat file is added to your System PATH to use this command from any directory. </Callout>
+
+🏗 Data Structure 
+The shelve module stores data in a Key-Value format.
+
+**Key**: The short name you provide (e.g., address).
+
+**Value**: The long text string saved from your clipboard.
+
+this is it for this project  
